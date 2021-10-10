@@ -79,4 +79,26 @@ public class Motus_class {
 		}
 		return (ch2);
 	}	
+	
+	
+	public static String traitement2(String ch, String ch1, String ch2){  //traitement 2 concerne les lettres mal placées
+		int i,j;
+		boolean t;
+		char c;
+		for (i=1; i<=7; i++) {
+			for (j=1; j<=7; j++) {
+				if ( (ch.charAt(i-1)==ch1.charAt(j-1)) && (i!=j) && (i!=1) ) { //i!=j: les 2 lettres sont les meme mais à des positions différentes
+					//condition i différent de 1 car la 1ère lettre est connue
+					t=verif(ch.charAt(i-1),ch2);
+					if (t==false) {
+						int ascii=ch.charAt(i-1);       //introduction de la variable ascii afin de convertir une lettre en majuscule à
+						ascii=ascii+32;                 //son équivalent en minuscule
+						c=(char)ascii; 
+						ch2=ch2.substring(0,i-1)+c+ch2.substring(i);
+					}
+				}
+			}
+		}
+		return (ch2);
+	}	
 }
