@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;  
 public class Motus_class {
 	public static Scanner x;
-	
+
 	public static String readFile(String ch){ //readFile est une fonction qui permet la saisie du mot et sa vérification  
 		boolean t;
 		int l,c;
@@ -46,5 +46,25 @@ public class Motus_class {
 		return ch;                       //la fonction readFile retourne le mot proposé
 	}
 	
-	
+	public static boolean verif(char c, String ch2) { //la fonction verif retourne false si un caractère donné n'est pas dans 
+		boolean t;                                    //une chaîne donnée, et retourne true si le caractère est bien dans la chaîne
+		int i;
+		t=false;
+		i=0;    
+		int ascii=c;       
+		ascii=ascii+32;                              //ascii est une variable qui permet la conversion d'une lettre majuscule en minuscule
+		char c1=(char)ascii;                         //c1 permet la comparaison avec la meme lettre mais en minuscule (cette condition permet d'éviter
+		//d'avoir 2 fois la meme lettre en minuscule quand le mot passe par la procédure traitement 2)
+
+		do {
+			i=i+1;
+			if ((c==ch2.charAt(i-1)) || (c1==ch2.charAt(i-1))) {         //comparasion de c avec la lettre eventuelle en majuscule 
+				//et c1 avec la lettre eventuelle en minuscule
+				t=true;
+			}
+		} while ( (t==false) && ((i-1)!=6) );
+		return (t);	
+	}	
+
+
 }
