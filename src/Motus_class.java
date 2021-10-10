@@ -66,5 +66,17 @@ public class Motus_class {
 		return (t);	
 	}	
 
-
+	public static String traitement1(String ch, String ch1, String ch2){ //traitement 1 concerne les lettres bien placées
+		int i,j;
+		for (i=1; i<=7; i++) {
+			for (j=1; j<=7; j++) {
+				if ( (ch.charAt(i-1)==ch1.charAt(j-1)) && (i==j) && (i!=1) ) {  //i==j: les 2 lettres sont à la même position
+					//condition i différent de 1 car la 1ère lettre est connue       
+					//pas besoin de uppercase car ch est déjà en maj
+					ch2=ch2.substring(0,i-1)+ch.charAt(i-1)+ch2.substring(i);
+				}
+			}
+		}
+		return (ch2);
+	}	
 }
